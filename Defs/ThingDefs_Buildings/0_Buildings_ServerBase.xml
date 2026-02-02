@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+  <!--==================== MakeShift Server ======================== -->
+  
+  <!-- ThingDef: Defines a new thing/building with BuildingBase as the parent class for default building properties -->
+  <ThingDef Name="SERVERS_ServerBase" ParentName="BuildingBase" Abstract="True">
+    <!-- C# class that handles the building's logic and behavior -->
+    <thingClass>Building</thingClass>
+
+    <!-- Renderer type - RealtimeOnly means it updates every frame (for animated objects) -->
+    
+    <!-- <drawerType>RealtimeOnly</drawerType> -->
+    <!-- How often the building's logic updates (Normal = every tick) -->
+    <tickerType>Normal</tickerType>
+	
+    <!-- Which category this building belongs to for organization in build menu -->
+    <thingCategories>
+      <li>BuildingsMisc</li>
+    </thingCategories>
+
+    <!-- Which menu category this building appears under (Production menu) -->
+    <designationCategory>Misc</designationCategory>
+
+    <defaultPlacingRot>South</defaultPlacingRot>
+    <minifiedDef>MinifiedThing</minifiedDef>
+	
+    <!-- Building-specific properties -->
+    <building>
+      <!-- Whether this building expands the home area (makes colonists prioritize nearby work) -->
+      <expandHomeArea>true</expandHomeArea>
+      <!-- AI won't use this building as a chill/relaxation spot -->
+      <ai_chillDestination>false</ai_chillDestination>
+    </building>
+	
+	<!-- Resources are dropped when building is destroyed/deconstructed -->
+	<leaveResourcesWhenKilled>true</leaveResourcesWhenKilled>
+	
+	<!-- Can this building be sold to traders? (Sellable = yes) -->
+	<tradeability>Sellable</tradeability>
+    </ThingDef>
+</Defs>

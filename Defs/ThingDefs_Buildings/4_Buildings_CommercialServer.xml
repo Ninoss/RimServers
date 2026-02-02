@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+  <ThingDef ParentName="SERVERS_ServerBase">
+    <defName>SERVERS_CommercialServer</defName>
+    <label>commercial server rack</label>
+    <description>A rack of rentable servers. It periodically produces silver when powered.\n\nProduces: 75 silver every 7 days\nPower: 600 W\nHeat: med</description>
+      <graphicData>
+        <texPath>Servers/CommercialServer</texPath>
+        <graphicClass>Graphic_Multi</graphicClass>
+        <drawSize>(2,2)</drawSize>
+        <shadowData>
+          <volume>(1,1,1)</volume>
+          <offset>(-0.03,0,-0.1)</offset>
+        </shadowData>
+        <damageData>
+          <rect>(1,1,1,1)</rect>
+      </damageData>
+    </graphicData>
+	
+    <rotatable>true</rotatable>
+    <stealable>false</stealable>
+    <uiIconScale>0.5</uiIconScale>
+	
+    <statBases>
+	    <Mass>22</Mass>
+      <MaxHitPoints>300</MaxHitPoints>
+      <WorkToBuild>4000</WorkToBuild>
+      <Flammability>0.5</Flammability>
+    </statBases>
+	
+    <size>(1,1)</size>
+	
+    <costList>
+      <Steel>150</Steel>
+      <ComponentIndustrial>6</ComponentIndustrial>
+      <Gold>30</Gold>
+    </costList>
+	
+    <passability>Impassable</passability>
+    <fillPercent>0.69</fillPercent>
+    <designationHotKey>Misc7</designationHotKey>
+    <constructionSkillPrerequisite>5</constructionSkillPrerequisite>
+
+    <comps>
+      <li Class="CompProperties_Power">
+        <compClass>CompPowerTrader</compClass>
+        <basePowerConsumption>600</basePowerConsumption>
+        <shortCircuitInRain>true</shortCircuitInRain>
+      </li>
+      <li Class="CompProperties_Flickable"/>
+      <li Class="CompProperties_Breakdownable"/>
+    
+      <li Class="CompProperties_Explosive">
+        <explosiveRadius>3</explosiveRadius>
+        <explosiveDamageType>Flame</explosiveDamageType>
+      </li>
+    
+      <li Class="CompProperties_Glower">
+        <glowRadius>3</glowRadius>
+        <glowColor>(100, 60, 170,0)</glowColor>
+      </li>
+    
+      <li Class="CompProperties_HeatPusher">
+        <compClass>CompHeatPusherPowered</compClass>
+        <heatPerSecond>2</heatPerSecond>
+        <heatPushMaxTemperature>120</heatPushMaxTemperature>
+      </li>
+
+      <li Class="CompProperties_Spawner">
+        <thingToSpawn>Silver</thingToSpawn>
+        <requiresPower>true</requiresPower>
+        <spawnCount>75</spawnCount>
+        <spawnIntervalRange><min>420000</min><max>420000</max></spawnIntervalRange>
+        <writeTimeLeftToSpawn>true</writeTimeLeftToSpawn>
+        <showMessageIfOwned>false</showMessageIfOwned>
+      </li>
+    </comps>
+	
+	  <researchPrerequisites>
+      <li>MicroelectronicsBasics</li>
+    </researchPrerequisites>
+  </ThingDef>
+</Defs>

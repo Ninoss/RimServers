@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+  <!--==================== MakeShift Server ======================== -->
+  
+  <!-- ThingDef: Defines a new thing/building with BuildingBase as the parent class for default building properties -->
+  <ThingDef ParentName="SERVERS_ServerBase">
+    <!-- Unique internal identifier used by RimWorld to reference this building -->
+    <defName>SERVERS_MakeshiftServer</defName>
+    <!-- Display name shown in the game UI when building or examining -->
+    <label>makeshift server</label>
+    <!-- Flavor text description shown in the building's inspect panel explaining its purpose and benefits -->
+    <description>A cobbled-together server built from whatever you can get working. Links to a research bench and provides a small research speed boost while powered.\n\nResearch speed: +2%\nPower: 400 W\nHeat: med</description>
+    <!-- Visual properties for how the building appears in-game -->
+    <graphicData>
+      <!-- Path to the texture/image file (without file extension) -->
+      <texPath>Servers/MakeshiftServer</texPath>
+      <!-- Which graphics rendering system to use (Single = one static sprite) -->
+      <graphicClass>Graphic_Multi</graphicClass>
+      <shaderType>CutoutComplex</shaderType>
+      <!-- Size in cells the building occupies on screen (2x2 = 2 tiles wide, 2 tiles tall) -->
+      <drawSize>(1,1)</drawSize>
+      <!-- Shadow casting settings for realistic shadows -->
+      <shadowData>
+        <!-- Shadow volume dimensions (width, height, depth) -->
+        <volume>(1,1,1)</volume>
+        <!-- Shadow offset position relative to building center -->
+        <offset>(-0.03,0,-0.1)</offset>
+      </shadowData>
+	  <!-- Defines the area where the building can receive damage visually -->
+      <damageData>
+        <!-- Damage rect: (left, bottom, right, top) in tile coordinates -->
+        <rect>(1,1,1,1)</rect>
+	  </damageData>
+	
+    </graphicData>
+	
+    <!-- Whether the building can be rotated when placing (false = fixed orientation) -->
+    <rotatable>false</rotatable>
+    <!-- Whether colonists or raiders can pick up and steal this building -->
+    <stealable>true</stealable>
+	
+    <!-- Base statistics that affect building behavior and durability -->
+    <statBases>
+	  <!-- How heavy the building is (affects construction effort and transport) -->
+	  <Mass>10</Mass>
+      <!-- Maximum health points before destruction -->
+      <MaxHitPoints>100</MaxHitPoints>
+      <!-- Work time in ticks required to complete construction -->
+      <WorkToBuild>2000</WorkToBuild>
+      <!-- Flammability rating (0 = fireproof, 1 = highly flammable) -->
+      <Flammability>0.69</Flammability>
+    </statBases>
+
+    <!-- Building's footprint size in tiles -->
+    <size>(1,1)</size>
+
+    <stuffCategories>
+      <li>Metallic</li>
+      <li>Woody</li>
+      <li>Stony</li>
+    </stuffCategories>
+    <costStuffCount>20</costStuffCount>
+	
+    <!-- Resources needed to construct this building -->
+    <costList>
+      <Steel>80</Steel>
+      <ComponentIndustrial>2</ComponentIndustrial>
+    </costList>
+	
+	<!-- Can pawns walk through this building? (Impassable = they cannot) -->
+	<passability>PassThroughOnly</passability>
+    <fillPercent>0.2</fillPercent>
+
+	
+    <!-- Keyboard hotkey for quick-designating this building (Misc6 = a specific hotkey) -->
+    <designationHotKey>Misc4</designationHotKey>
+	
+
+    <!-- Minimum skill level (construction) required to build this building -->
+    <constructionSkillPrerequisite>3</constructionSkillPrerequisite>
+	
+	<!-- Workers that provide visual feedback when placing (shows facility connections) -->
+	<placeWorkers>
+      <li>PlaceWorker_ShowFacilitiesConnections</li>
+    </placeWorkers>
+	
+	<!-- Components that add functionality to the building -->
+	<comps>
+	
+	 <!-- Power consumption component: makes building use electricity -->
+	 <li Class="CompProperties_Power">
+        <!-- The component class that handles power logic -->
+        <compClass>CompPowerTrader</compClass>
+        <!-- Power consumption in watts (400W when powered) -->
+        <basePowerConsumption>400</basePowerConsumption>
+        <!-- Short-circuiting in rain -->
+        <shortCircuitInRain>true</shortCircuitInRain>
+     </li>
+     
+     <!-- Flickable component: allows manual toggling on/off -->
+     <li Class="CompProperties_Flickable"/>
+	 
+     <!-- Breakdownable component: building can randomly malfunction/break down -->
+     <li Class="CompProperties_Breakdownable"/>
+	 
+	 <!-- Explosive component: building explodes when destroyed -->
+	 <li Class="CompProperties_Explosive">
+        <!-- Radius in tiles the explosion affects -->
+        <explosiveRadius>2</explosiveRadius>
+        <!-- Type of damage (Flame = fire damage) -->
+        <explosiveDamageType>Flame</explosiveDamageType>
+     </li>
+	 
+	 <!-- Glower component: building emits light -->
+	 <li Class="CompProperties_Glower">
+        <!-- How far the light spreads in tiles -->
+        <glowRadius>1</glowRadius>
+        <!-- Light color in RGBA format (R, G, B, Alpha) - Green glow -->
+        <glowColor>(0, 204, 0,0)</glowColor>
+     </li>
+	 
+     <!-- Heat pusher component: building generates/removes heat when powered -->
+     <li Class="CompProperties_HeatPusher">
+        <!-- Component class handling heat logic -->
+        <compClass>CompHeatPusherPowered</compClass>
+        <!-- Heat output per second when powered (cools or heats room) -->
+        <heatPerSecond>1.5</heatPerSecond>
+        <!-- Maximum temperature threshold (42°C = stops cooling when warm enough) -->
+        <heatPushMaxTemperature>42</heatPushMaxTemperature>
+     </li>
+      
+	 <!-- Facility component: this building provides bonuses to nearby buildings/colonists -->
+	 <li Class="CompProperties_Facility">
+        <!-- Stat modifications provided to connected facilities -->
+        <statOffsets>
+          <!-- Provides 2% research speed bonus to research benches connected to this -->
+          <ResearchSpeedFactor>0.02</ResearchSpeedFactor>
+        </statOffsets>
+        <!-- Maximum number of facilities that can be connected at once -->
+        <maxSimultaneous>1</maxSimultaneous>
+     </li>  
+	  
+	</comps>
+	
+	<!-- Research technologies required before building this (must research Electricity first) -->
+	<researchPrerequisites>
+        <li>Electricity</li>
+    </researchPrerequisites>
+    
+    </ThingDef>
+</Defs>

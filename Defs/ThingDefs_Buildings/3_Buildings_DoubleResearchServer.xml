@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+  <ThingDef ParentName="SERVERS_ServerBase">
+    <defName>SERVERS_DoubleResearchServer</defName>
+    <label>research server double-rack</label>
+    <description>A larger, more efficient rack for heavy research workloads. Links to research benches and improves research speed while powered.\n\nResearch speed: +10%\nPower: 1000 W\nHeat: med-high</description>
+      <graphicData>
+        <texPath>Servers/DoubleResearchServer</texPath>
+        <graphicClass>Graphic_Multi</graphicClass>
+        <drawSize>(3,3)</drawSize>
+        <shadowData>
+          <volume>(1,1,1)</volume>
+          <offset>(-0.03,0,-0.1)</offset>
+        </shadowData>
+        <damageData>
+          <rect>(1,1,1,1)</rect>
+      </damageData>
+    </graphicData>
+	
+    <rotatable>true</rotatable>
+    <stealable>false</stealable>
+	
+    <statBases>
+	    <Mass>50</Mass>
+      <MaxHitPoints>500</MaxHitPoints>
+      <WorkToBuild>10000</WorkToBuild>
+      <Flammability>0.5</Flammability>
+    </statBases>
+
+    <size>(2,1)</size>
+	
+    <costList>
+      <Steel>250</Steel>
+      <ComponentIndustrial>10</ComponentIndustrial>
+      <ComponentSpacer>2</ComponentSpacer>
+      <Plasteel>50</Plasteel>
+    </costList>
+	
+    <passability>Impassable</passability>
+    <fillPercent>0.69</fillPercent>
+    <designationHotKey>Misc6</designationHotKey>
+    <constructionSkillPrerequisite>6</constructionSkillPrerequisite>
+    <placeWorkers>
+      <li>PlaceWorker_ShowFacilitiesConnections</li>
+    </placeWorkers>
+
+    <comps>
+      <li Class="CompProperties_Power">
+        <compClass>CompPowerTrader</compClass>
+        <basePowerConsumption>1000</basePowerConsumption>
+        <shortCircuitInRain>true</shortCircuitInRain>
+      </li>
+      <li Class="CompProperties_Flickable"/>
+      <li Class="CompProperties_Breakdownable"/>
+    
+      <li Class="CompProperties_Explosive">
+        <explosiveRadius>5</explosiveRadius>
+        <explosiveDamageType>Flame</explosiveDamageType>
+      </li>
+    
+      <li Class="CompProperties_Glower">
+        <glowRadius>5</glowRadius>
+        <glowColor>(30, 180, 150,0)</glowColor>
+      </li>
+    
+      <li Class="CompProperties_HeatPusher">
+        <compClass>CompHeatPusherPowered</compClass>
+        <heatPerSecond>3</heatPerSecond>
+        <heatPushMaxTemperature>120</heatPushMaxTemperature>
+      </li>
+        
+      <li Class="CompProperties_Facility">
+        <statOffsets>
+          <ResearchSpeedFactor>0.1</ResearchSpeedFactor>
+        </statOffsets>
+        <maxSimultaneous>12</maxSimultaneous>
+      </li>  
+    </comps>
+	
+	  <researchPrerequisites>
+      <li>MicroelectronicsBasics</li>
+    </researchPrerequisites>
+  </ThingDef>
+</Defs>
