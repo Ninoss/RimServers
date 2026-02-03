@@ -68,7 +68,6 @@
     </costList>
 	
 	<!-- Can pawns walk through this building? (Impassable = they cannot) -->
-	<passability>PassThroughOnly</passability>
     <fillPercent>0.2</fillPercent>
 
 	

@@ -36,7 +36,6 @@
       <Gold>30</Gold>
     </costList>
 	
-    <passability>Impassable</passability>
     <fillPercent>0.69</fillPercent>
     <designationHotKey>Misc7</designationHotKey>
     <constructionSkillPrerequisite>5</constructionSkillPrerequisite>

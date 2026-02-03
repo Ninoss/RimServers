@@ -36,7 +36,6 @@
       <Plasteel>50</Plasteel>
     </costList>
 	
-    <passability>Impassable</passability>
     <fillPercent>0.69</fillPercent>
     <designationHotKey>Misc6</designationHotKey>
     <constructionSkillPrerequisite>6</constructionSkillPrerequisite>
