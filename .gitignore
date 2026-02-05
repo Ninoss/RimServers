@@ -1,0 +1,24 @@
+# Unity
+/Obj/
+/Bin/
+*.csproj
+*.sln
+*.user
+
+# RimWorld
+/Source
+
+# IDE
+.vs/
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Temporary files
+*.tmp
+*.log

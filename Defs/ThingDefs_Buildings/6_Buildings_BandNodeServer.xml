@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+  <ThingDef ParentName="BuildingBase" MayRequire="Ludeon.RimWorld.Biotech">
+    <defName>SERVERS_BandNodeServer</defName>
+    <label>band node server</label>
+    <description>A compact low powered mechanoid-band signal amplifier server. Band nodes must be tuned to a specific mechanitor, adding bandwidth to that mechanitor's total bandwidth.\n\nPower: 100-400 W\nHeat: none</description>
+
+    <graphicData>
+      <texPath>Servers/BandNodeServer</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <drawSize>(3,3)</drawSize>
+      <shadowData>
+        <volume>(1,1,1)</volume>
+        <offset>(-0.03,0,-0.1)</offset>
+      </shadowData>
+      <damageData>
+          <rect>(1,1,1,1)</rect>
+      </damageData>
+    </graphicData>
+  
+    <rotatable>false</rotatable>
+    <stealable>false</stealable>
+    <canOverlapZones>false</canOverlapZones>
+    <tickerType>Normal</tickerType>
+    <drawerType>MapMeshAndRealTime</drawerType>
+    <uiIconScale>1</uiIconScale>
+	
+    <statBases>
+	    <Mass>25</Mass>
+      <MaxHitPoints>600</MaxHitPoints>
+      <WorkToBuild>12000</WorkToBuild>
+      <Flammability>0.4</Flammability>
+    </statBases>
+	
+    <size>(1,2)</size>
+
+    <building>
+      <ai_chillDestination>false</ai_chillDestination>
+      <expandHomeArea>true</expandHomeArea>
+      <buildingTags>
+        <li>Biotech</li>
+      </buildingTags>
+    </building>
+    <designationCategory>Biotech</designationCategory>
+
+    <minifiedDef>MinifiedThing</minifiedDef>
+    <thingCategories>
+      <li>BuildingsMisc</li>
+    </thingCategories>
+	
+    <costList>
+      <Steel>200</Steel>
+      <ComponentIndustrial>8</ComponentIndustrial>
+      <Silver>200</Silver>
+    </costList>
+	  <researchPrerequisites>
+      <li>StandardMechtech</li>
+      <li>MicroelectronicsBasics</li>
+    </researchPrerequisites>
+    <fillPercent>0.69</fillPercent>
+    <constructionSkillPrerequisite>5</constructionSkillPrerequisite>
+
+    <comps>
+      <li Class="CompProperties_Power">
+        <compClass>CompPowerTrader</compClass>
+        <basePowerConsumption>300</basePowerConsumption>
+        <shortCircuitInRain>true</shortCircuitInRain>
+      </li>
+      <li Class="CompProperties_Flickable"/>
+      <li Class="CompProperties_BandNode">
+        <hediff>SERVERS_BandNodeServerBandNode</hediff>
+        <untunedEffect>BandNodeUntuned</untunedEffect>
+        <tuningEffect>BandNodeTuning</tuningEffect>
+        <tunedEffect>BandNodeTuned</tunedEffect>
+        <retuningEffect>BandNodeRetuning</retuningEffect>
+        <tuningCompleteSound>BandNodeTuning_Complete</tuningCompleteSound>
+        <powerConsumptionIdle>100</powerConsumptionIdle>
+      </li>
+      <!-- 
+      <li Class="VEF.Buildings.CompProperties_RandomBuildingGraphic" MayRequire="OskarPotocki.VanillaFactionsExpanded.Core">
+        <randomGraphics>
+      	<li>Servers/BandNodeServer</li>
+      	<li>Servers/BandNodeServer2</li>
+        </randomGraphics>
+      </li> 
+      -->
+    </comps>
+  </ThingDef>
+</Defs>

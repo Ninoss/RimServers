@@ -13,7 +13,7 @@
     <!-- How often the building's logic updates (Normal = every tick) -->
     <tickerType>Normal</tickerType>
 	
-    <!-- Which category this building belongs to for organization in build menu -->
+    <!-- Which category this thing belongs to for MinifiedThing-->
     <thingCategories>
       <li>BuildingsMisc</li>
     </thingCategories>
@@ -21,6 +21,7 @@
     <!-- Which menu category this building appears under (Production menu) -->
     <designationCategory>Misc</designationCategory>
     <passability>PassThroughOnly</passability>
+    <canOverlapZones>false</canOverlapZones> 
 
     <defaultPlacingRot>South</defaultPlacingRot>
     <minifiedDef>MinifiedThing</minifiedDef>

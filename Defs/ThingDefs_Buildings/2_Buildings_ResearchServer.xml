@@ -22,7 +22,7 @@
     <uiIconScale>0.5</uiIconScale>
 	
     <statBases>
-	    <Mass>22</Mass>
+	    <Mass>15</Mass>
       <MaxHitPoints>300</MaxHitPoints>
       <WorkToBuild>4000</WorkToBuild>
       <Flammability>0.5</Flammability>

@@ -14,12 +14,13 @@
 	<description>Adds a set of server racks for your colony.
 
 - Makeshift server: early-game research boost.
+- Band node server: increases mechanitor bandwidth (Biotech required).
 - Research servers: research boost to research benches.
 - Commercial servers: periodically produce silver.
 
-All servers require power and generate heat.
+All servers require power and most generate heat.
 
-Original mod: https://steamcommunity.com/sharedfiles/filedetails/?id=1714455977.</description>
+Inspired by: https://steamcommunity.com/sharedfiles/filedetails/?id=1714455977.</description>
 	<loadAfter>
 		<li>Ludeon.RimWorld</li>
 		<li>Ludeon.RimWorld.Royalty</li>
@@ -27,5 +28,6 @@ Original mod: https://steamcommunity.com/sharedfiles/filedetails/?id=1714455977.
 		<li>Ludeon.RimWorld.Biotech</li>
 		<li>Ludeon.RimWorld.Anomaly</li>
 		<li>brrainz.harmony</li>
+		<li>OskarPotocki.VanillaFactionsExpanded.Core</li>
 	</loadAfter>
 </ModMetaData>

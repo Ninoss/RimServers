@@ -21,7 +21,7 @@
     <stealable>false</stealable>
 	
     <statBases>
-	    <Mass>50</Mass>
+	    <Mass>40</Mass>
       <MaxHitPoints>500</MaxHitPoints>
       <WorkToBuild>10000</WorkToBuild>
       <Flammability>0.5</Flammability>
