@@ -27,5 +27,17 @@
 			<li>SERVERS_DoubleResearchServer</li>
 		</value>
 	</Operation>
+
+	<Operation Class="PatchOperationConditional">
+		<xpath>/Defs/ThingDef[defName="RM_GestaltEngine"]</xpath>
+		<match Class="PatchOperationAdd">
+			<xpath>/Defs/ThingDef[defName="RM_GestaltEngine"]/comps/li[@Class="CompProperties_AffectedByFacilities"]/linkableFacilities</xpath>
+			<value>
+				<li>SERVERS_MakeshiftServer</li>
+				<li>SERVERS_ResearchServer</li>
+				<li>SERVERS_DoubleResearchServer</li>
+			</value>
+		</match>
+	</Operation>
 </Patch>
 
